@@ -10,9 +10,6 @@ console.log(galleryItems);
 
 const refs = {
     gallery: document.querySelector(".gallery"),
-    image: document.createElement("img"),
-    href: document.querySelector('a'),
-    lightbox: document.querySelector(".lightbox"),
 };
 
 const createGalleryItem = ({ preview, original, description }) =>
@@ -32,4 +29,3 @@ let gallery = new SimpleLightbox('.gallery a', {
     navText: ['&#8249;', '&#8250;']
 
 });
-gallery.on('show.simplelightbox', function() {});
