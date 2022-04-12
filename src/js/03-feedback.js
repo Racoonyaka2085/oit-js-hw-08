@@ -3,6 +3,7 @@ import throttle from 'lodash.throttle';
 const formRef = document.querySelector('.feedback-form');
 
 const formData = {};
+
 formRef.addEventListener('input', throttle((event) => {
     event.preventDefault();
     formData[event.target.name] = event.target.value;
@@ -11,6 +12,9 @@ formRef.addEventListener('input', throttle((event) => {
 
 formRef.addEventListener('submit', (event) => {
     event.preventDefault();
+    if (event.target.email.value === "" || event.target.message.value === "") {
+        return;
+    }
     console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
     event.currentTarget.reset();
     localStorage.removeItem('feedback-form-state');
